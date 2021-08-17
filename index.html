@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Weather Dashboard</title>
+	<meta name="description" content="">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./styles.css">
+
+
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 header">
+				<h1><b>And Now, The Weather </b></h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<form class="form-inline">
+					<fieldset>
+						<h3>Search for a City:</h3>
+						<input id="city-input" type="userInput" placeholder="Search" />
+						<button id="submit" class="btn btn-primary" type="submit">
+							<i class="fa fa-search"></i>
+						</button>
+					</fieldset>
+				</form>
+			</div>
+
+			<div class="col-sm-12" id="add-to-search-history">
+				<h4>Search History:</h4>
+				<ul id="search-list"></ul>
+			</div>
+			</div>
+
+
+
+
+			<div class="col-md p-1">
+				<div class="card">
+					<div id="cardHeader" class="city-header">
+</div>
+					</div>
+					</div>
+
+
+
+					<div class="row">
+						<div class="col-md p-1">
+							<div class="card">
+							<div class=card-header id=current-day-header></div>
+							<ul class="list-group list-group-flush">
+								<li id="current-icon" class="list-group-item"></li>
+								<li id="current-temp" class="list-group-item">Temperature: &#176;F</li>
+								<li id="current-humidity" class="list-group-item">Humidity: %</li>
+								<li id="current-wind" class="list-group-item">Wind Speed: MPH</li>
+								<li id="current-uv" class="list-group-item">UV Index: <span id="uvIndex"
+										class="uvIndex"></span></li>
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md p-1">
+							<div class="card">
+								<div id="day-2-header" class="card-header">
+									DAY 2
+								</div>
+								<div class="card-body day-Card-Body text-center">
+									<p id="day-2-Icon"></p>
+									<p id="day-2-Temp">Temperature: </p>
+									<p id="day-2-Humidity">Humidity: </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md p-1">
+							<div class="card">
+								<div id="day-3-header" class="card-header">
+									DAY 3
+								</div>
+								<div class="card-body day-Card-Body text-center">
+									<p id="day-3-Icon"></p>
+									<p id="day-3-Temp">Temperature: </p>
+									<p id="day-3-Humidity">Humidity: </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md p-1">
+							<div class="card">
+								<div id="day-4-header" class="card-header">
+									DAY 4
+								</div>
+								<div class="card-body day-Card-Body text-center">
+									<p id="day-4-Icon"></p>
+									<p id="day-4-Temp">Temperature: </p>
+									<p id="day-4-Humidity">Humidity: </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md p-1">
+							<div class="card">
+								<div id="day-5-header" class="card-header">
+									DAY 5
+								</div>
+								<div class="card-body day-Card-Body text-center">
+									<p id="day-5-Icon"></p>
+									<p id="day-5-Temp">Temperature: </p>
+									<p id="day-5-Humidity">Humidity: </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>query
+		<script src="./script.js"></script>
+
+</body>
+
+</html>
