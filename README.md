@@ -4,5 +4,4 @@ A simple weather dashboard that retrieves a five day forecast by city, displayin
 
 # Deployment
 ![Screenshot](./images/weatherScreenshot.png)
-Format: ![Click to see screenshot of deployment](url)
 
