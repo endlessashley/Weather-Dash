@@ -28,7 +28,6 @@ function getFiveDay(input) {
       document.getElementById("cardHeader").innerHTML = input.charAt(0).toUpperCase() + input.slice(1)
       document.getElementById("current-day-header").innerHTML = data.list[0].dt_txt.split(' ')[0];
       document.getElementById("current-temp").innerHTML = "Temperature: " + data.list[0].main.temp + "&#176;F";
-      console.log(data.list[0].main.temp)
       document.getElementById("current-humidity").innerHTML = "Humidity: " + data.list[0].main.humidity + "%";
       document.getElementById("current-wind").innerHTML = "Wind Speed: " + data.list[0].wind.speed + "MPH";
       document.getElementById("current-icon").innerHTML = '<img src="' + currentIconUrl + '">';
@@ -65,7 +64,7 @@ function getFiveDay(input) {
       document.getElementById("day-5-Temp").innerHTML = "Temperature: " + data.list[31].main.temp + "&#176;F";
       document.getElementById("day-5-Humidity").innerHTML = "Humidity: " + data.list[31].main.humidity + "%";
     })
-    
+
 
   console.log("step 1 done")
 }
@@ -128,7 +127,6 @@ function addHistory() {
   searchList.innerHTML = '<li>' + searchItem + '</li>';
   console.log(searchList)
   var saved = JSON.parse(localStorage.getItem('searchItems'));
-  console.log(saved)
   if (!saved) {
     saved = []
   };
@@ -142,6 +140,7 @@ function addHistory() {
 
   // Save the list to localStorage
   localStorage.setItem('searchItems', JSON.stringify(saved));
+  console.log("step 4 done")
   displayHistory()
 };
 
@@ -162,11 +161,12 @@ function displayHistory() {
   }
   for (var i = 0; i < saved.length; i++) {
     var city = saved[i];
-    console.log(city)
     var stringedName = '"' + city + '"'
-    var li = "<button value=" + city + " onclick='getFiveDay(" + stringedName + ")'>" + city + "</button>"
+    var li = "<button value=" + stringedName + " onclick='getFiveDay("+input+")'>" + city + "</button>"
+
+
+
     searchList.innerHTML = searchList.innerHTML + li
-    console.log(stringedName)
 
   }
 }
