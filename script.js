@@ -1,6 +1,17 @@
 var input = document.getElementById("city-input").value;
 var apiKey = "35d011654bef60ba3c639b42e8aacc9c";
 
+let searchButton = document.getElementById("submit");
+
+window.onload = function loadLastSearch() {
+  if (localStorage.getItem('lastSearch') === null) {
+      let input = 'Charlottesville'
+      getFiveDay(input)
+  } else {
+      let input = localStorage.getItem('lastSearch')
+      getFiveDay(input)
+      }
+}
 
 document.getElementById("submit").addEventListener("click", function () {
   event.preventDefault();
@@ -111,6 +122,21 @@ function getUV(lat, lon) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var firstSearch = false;
 var li
 var addToSearchHistory = document.getElementById('add-to-search-history');
@@ -161,8 +187,10 @@ function displayHistory() {
   }
   for (var i = 0; i < saved.length; i++) {
     var city = saved[i];
-    var stringedName = '"' + city + '"'
-    var li = "<button value=" + stringedName + " onclick='getFiveDay("+input+")'>" + city + "</button>"
+    var stringedCity = '"' + city + '"'
+    var li = `<button id = "submit" class="btn btn-primary" type="submit" onclick="getFiveDay(" + stringedName + ")`
+    
+    "button" value= "button" cityName="${input}" onclick="pushCity(this)" id='previousSearchButtons'>${input}</button>`
 
 
 
@@ -175,8 +203,9 @@ function displayHistory() {
 displayHistory()
 
 
+`<button type="button" cityName="${input}" onclick="pushCity(this)" id='previousSearchButtons'>${input}</button>`
 
-
+"<button value=" + city + " onclick='getCurrentWeather(" + stringedCity + ")'>" + city + "</button>"
 
 
 
