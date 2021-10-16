@@ -1,19 +1,50 @@
 var input = document.getElementById("city-input").value;
-var apiKey = "35d011654bef60ba3c639b42e8aacc9c";
-
-let searchButton = document.getElementById("submit");
+var apiKey = "920b730f17ac801c61b9f3de6744ae6a";
 
 window.onload = function loadLastSearch() {
-  if (localStorage.getItem('lastSearch') === null) {
-      let input = 'Charlottesville'
-      getFiveDay(input)
+  if (localStorage.getItem('searchItems') === null) {
+    let input = 'New York'
+    document.getElementById("card-header").innerHTML = input
+    getFiveDay(input)
   } else {
-      let input = localStorage.getItem('lastSearch')
-      getFiveDay(input)
-      }
+    let input = localStorage.getItem('lastSearch')
+    getFiveDay(input)
+  }
 }
 
-document.getElementById("submit").addEventListener("click", function () {
+window.onload = function displayHistory() {
+  var saved = JSON.parse(localStorage.getItem('searchItems'));
+  var searchList = document.getElementById('search-list');
+  // var firstSearch = false;
+
+  // console.log(saved)
+  // searchList.innerHTML = "";
+  // if (!saved) {
+  //   return
+  // };
+  // if (!firstSearch) {
+  //   firstSearch = true
+  //   getFiveDay(saved[saved.length - 1])
+  // }
+  for (var i = 0; i < saved.length; i++) {
+    var input = saved[i]
+    // var stringedCity = '"' + city + '"'
+    var li = "<button class='btn btn-light history-button' type='submit'>" + input + "</button>"
+    searchList.innerHTML = searchList.innerHTML + li
+    document.getElementById("cardHeader").innerHTML = input
+  }
+    if (saved === null) {
+      let input = 'Charlottesville'
+      getFiveDay(input)
+  } 
+  else {
+      let input = localStorage.getItem(saved[i])
+      getFiveDay(input)
+      }
+
+}
+
+document.getElementById("search").addEventListener("click", function () {
   event.preventDefault();
   getFiveDay(input);
   getCoords(input);
@@ -21,10 +52,17 @@ document.getElementById("submit").addEventListener("click", function () {
   addHistory();
 })
 
-document.getElementById("card-header").innerHTML = input
+document.querySelector("#search-list").addEventListener('click', function(e) {
+	if(e.target.classList.contains('history-button')) {
+		let cityButton = e.target.textContent;
+        getFiveDay(cityButton);
+        getCoords(cityButton)
+	}
+});
+
 
 function getFiveDay(input) {
-  var input = document.getElementById('city-input').value;
+
   let fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + input + "&units=imperial&appid=" + apiKey
 
   fetch(fiveDayUrl)
@@ -137,11 +175,11 @@ function getUV(lat, lon) {
 
 
 
-var firstSearch = false;
-var li
-var addToSearchHistory = document.getElementById('add-to-search-history');
-var searchItem = document.getElementById('city-input').value;
-var searchList = document.getElementById('search-list');
+// var firstSearch = false;
+// var li
+// var addToSearchHistory = document.getElementById('add-to-search-history');
+// var searchItem = document.getElementById('city-input').value;
+// var searchList = document.getElementById('search-list');
 
 function addHistory() {
   var searchItem = document.getElementById('city-input').value;
@@ -171,41 +209,34 @@ function addHistory() {
 };
 
 
-function displayHistory() {
-  var saved = JSON.parse(localStorage.getItem('searchItems'));
-  var searchList = document.getElementById('search-list');
-  var firstSearch = false;
+// function displayHistory() {
+//   var saved = JSON.parse(localStorage.getItem('searchItems'));
+//   var searchList = document.getElementById('search-list');
+//   var firstSearch = false;
 
-  console.log(saved)
-  searchList.innerHTML = "";
-  if (!saved) {
-    return
-  };
-  if (!firstSearch) {
-    firstSearch = true
-    getFiveDay(saved[saved.length - 1])
-  }
-  for (var i = 0; i < saved.length; i++) {
-    var city = saved[i];
-    var stringedCity = '"' + city + '"'
-    var li = `<button id = "submit" class="btn btn-primary" type="submit" onclick="getFiveDay(" + stringedName + ")`
-    
-    "button" value= "button" cityName="${input}" onclick="pushCity(this)" id='previousSearchButtons'>${input}</button>`
+//   console.log(saved)
+//   searchList.innerHTML = "";
+//   if (!saved) {
+//     return
+//   };
+//   if (!firstSearch) {
+//     firstSearch = true
+//     getFiveDay(saved[saved.length - 1])
+//   }
+//   for (var i = 0; i < saved.length; i++) {
+//     var city = saved[i];
+//     var li = "<button class='btn btn-light history-button' type='submit'>" + city + "</button>"
+//     searchList.innerHTML = searchList.innerHTML + li
+//   }
+// }
 
-
-
-    searchList.innerHTML = searchList.innerHTML + li
-
-  }
-}
+// displayHistory()
 
 
-displayHistory()
 
 
-`<button type="button" cityName="${input}" onclick="pushCity(this)" id='previousSearchButtons'>${input}</button>`
 
-"<button value=" + city + " onclick='getCurrentWeather(" + stringedCity + ")'>" + city + "</button>"
+
 
 
 
