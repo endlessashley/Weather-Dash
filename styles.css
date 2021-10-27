@@ -10,7 +10,9 @@ body {
 
 
 
-
+li {
+  list-style-type: none;
+}
 
 
 
@@ -19,9 +21,11 @@ h1, h2, h3, h4 {
   text-align: center
 }
 
-.sidebar {
-    text-align: center;
-  }
+h1 {
+  font-size: 48pt;
+}
+
+
 
 .main {
     text-align: center;
@@ -46,6 +50,7 @@ h1, h2, h3, h4 {
   justify-content: center;
   color: black;
   text-align: center;
+  margin: 20px;
   
 }
 
@@ -54,25 +59,83 @@ h1, h2, h3, h4 {
   align-items: center;
   justify-content: center;
   color: black;
-  border: 3px double white;
-  margin: 10px;
+  /* border: 3px double white; */
+  margin: 20px;
 }
 
-.add-to-search-history {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
-  border: 3px double white;
-  margin: 10px;
+#card-header {
+  font-size: 16pt;
+  font-weight: bold;
 }
 
 .city-header {
   font-size: 24px;
-  font-weight: bolder;
+  font-weight: bold;
   justify-content: center;
+  color: black;
+  
+}
+
+.header-background {
+  background-color: lightgray;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+ 
 }
 
 .card {
   align-items: center;
+}
+
+.card-header {
+  margin: 20px;
+  background: lightskyblue;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.2);
+}
+
+.header {
+  font-size: 46pt;
+  border: none;
+}
+
+/* #search-bar {
+  border: none
+} */
+
+#search-input-bar {
+  margin: 20px;
+  border-radius: 5px;
+  
+}
+
+.history-button {
+margin: 5px;
+background: white;
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+.cloud{ 
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+}
+
+
+#search-bar {
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+  margin: 20px;
+  text-align: center;
+}
+
+#add-to-search-history {
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
+  margin: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.2);
 }
